@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from "@angular/forms";
 import { Validators } from "@angular/forms";
+import { PostalCodesService } from "../../services/postalCodes/postal-codes.service";
 
 @Component({
   selector: 'app-user-data-form',
@@ -9,7 +10,11 @@ import { Validators } from "@angular/forms";
 })
 export class UserDataFormComponent implements OnInit {
   userData: FormGroup;
-  constructor(private fb: FormBuilder) { }
+  colonies: Array<Object> = [{}];
+
+  constructor(
+    private fb: FormBuilder,
+    private _cp: PostalCodesService) { }
 
   ngOnInit(): void {
     this.userData = this.fb.group({
@@ -17,14 +22,24 @@ export class UserDataFormComponent implements OnInit {
       lastName: [null, Validators.required],
       email: [null, Validators.required],
       phone: [null, Validators.required],
-      zip: [null, Validators.required],
-      suburb: [null, Validators.required],
+      zip: ["", Validators.required],
+      colonie: ["", Validators.required],
       state: [null, Validators.required],
       city: [null, Validators.required],
-      municipality: [null, Validators.required],
+      town: [null, Validators.required],
       street: [null, Validators.required],
-      useAddress: [null, Validators.required]
+      useAddress: [false, Validators.required]
     });
+  }
+
+  getZip(zip: string) {
+    this._cp.get(zip).subscribe(data => {
+      this.userData.controls['city'].setValue(data.city);
+      this.userData.controls['state'].setValue(data.state);
+      this.userData.controls['town'].setValue(data.town);
+      this.colonies = data.colonies;
+      (data.colonies.length === 1) ? this.userData.controls['colonie'].setValue(data.colonies[0]) : this.userData.controls['colonie'].setValue("");
+    })
   }
 
 }

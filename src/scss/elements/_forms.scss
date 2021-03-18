@@ -18,12 +18,25 @@ form {
         }
 
         input {
+            width: 150px;
             border: none;
             text-indent: 10px;
+            padding: 0;
+        }
+
+        select {
+            width: 150px;
+            border: none;
+
         }
 
         @media (max-width: 890px) {
             width: 100%;
+
+            input,
+            select {
+                width: 100%;
+            }
         }
     }
 }

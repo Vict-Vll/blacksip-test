@@ -1,5 +1,5 @@
 <div class="order-header">Resumen de la orden</div>
-<app-product-list></app-product-list>
+<app-product-list [products]="products"></app-product-list>
 <div class="order-edit-cont">
     <button class="btn btn-secondary right">Editar</button>
 </div>
@@ -7,7 +7,7 @@
     <table>
         <tr>
             <td>Subtotal</td>
-            <td class="right">$13,974.00</td>
+            <td class="right">{{ total | currency }}</td>
         </tr>
         <tr>
             <td>Envío</td>
@@ -19,7 +19,7 @@
     <table>
         <tr>
             <td>Total</td>
-            <td class="right">$13,974.00</td>
+            <td class="right">{{ total | currency }}</td>
         </tr>
     </table>
 </div>

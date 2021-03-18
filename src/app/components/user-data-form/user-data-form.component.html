@@ -49,8 +49,10 @@
     </div>
     <div class="button-cont">
         <button class="btn btn-primary">Libreta de direcciones</button>
-        <button class="btn btn-primary" type="submit" [disabled]="!userData.valid">Guardar</button>
+        <button class="btn btn-primary" type="submit" [disabled]="!userData.valid"
+            (click)="saveData(userData.value)">Guardar</button>
     </div>
     <label><input type="checkbox" formControlName="useAddress" value="applyAddress"> Utilizar como dirección de
         facturación</label>
 </form>
+<app-message (closeModal)="closeModal()" *ngIf="dataSuccess"></app-message>

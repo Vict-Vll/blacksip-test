@@ -8,11 +8,11 @@ import { Constants } from "../../../config/constants";
 })
 
 export class ContactService {
-  url: string = Constants.SERVICES.contact;
+  url: string = Constants.SERVICES.url + Constants.SERVICES.contact;
 
   constructor(private http: HttpClient) { }
 
   post(data): Observable<any> {
-    return this.http.get(this.url, data);
+    return this.http.post(this.url, data);
   }
 }

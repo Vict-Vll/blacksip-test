@@ -1,47 +1,55 @@
 <form method="get" enctype="text/plain" [formGroup]="userData">
     <div class="input-cont">
         <div class="icon-cont"><i class="fa fa-user"></i></div><input type="text" formControlName="firstName"
-            placeholder="Nombre">
+            placeholder="Nombre" required>
     </div>
     <div class="input-cont">
         <div class="icon-cont"><i class="fa fa-user-alt"></i></div><input type="text" formControlName="lastName"
-            placeholder="Apellido">
+            placeholder="Apellido" required>
     </div>
     <div class="input-cont">
         <div class="icon-cont"><i class="fa fa-envelope"></i></div><input type="email" formControlName="email"
-            placeholder="Correo Electrónico">
+            placeholder="Correo Electrónico" required>
     </div>
     <div class="input-cont">
         <div class="icon-cont"><i class="fa fa-phone"></i></div><input type="phone" formControlName="phone"
-            placeholder="Teléfono">
+            placeholder="Teléfono" required>
     </div>
     <div class="input-cont">
-        <div class="icon-cont"><i class="fa fa-street-view"></i></div><input type="number" formControlName="zip"
-            placeholder="Código postal">
+        <div class="icon-cont"><i class="fa fa-street-view"></i></div>
+        <select formControlName="zip" name="zip" required (change)="getZip(userData.value.zip)">
+            <option value="" selected disabled>Código postal</option>
+            <option value="11000">11000</option>
+            <option value="89000">89000</option>
+        </select>
     </div>
     <div class="input-cont">
-        <div class="icon-cont"><i class="fa fa-street-view"></i></div><input type="text" formControlName="suburb"
-            placeholder="Colonia">
+        <div class="icon-cont"><i class="fa fa-street-view"></i></div>
+        <input *ngIf="colonies.length === 1" type="text" formControlName="colonie" placeholder="Colonia" required>
+        <select *ngIf="colonies.length > 1" formControlName="colonie" name="colonie" required>
+            <option value="" selected disabled>Colonia</option>
+            <option *ngFor="let colonie of colonies" [value]="colonie">{{ colonie }}</option>
+        </select>
     </div>
     <div class="input-cont">
         <div class="icon-cont"><i class="fa fa-street-view"></i></div><input type="text" formControlName="state"
-            placeholder="Estado/Region">
+            placeholder="Estado/Region" required>
     </div>
     <div class="input-cont">
         <div class="icon-cont"><i class="fa fa-street-view"></i></div><input type="text" formControlName="city"
-            placeholder="Ciudad">
+            placeholder="Ciudad" required>
     </div>
     <div class="input-cont">
-        <div class="icon-cont"><i class="fa fa-street-view"></i></div><input type="text" formControlName="municipality"
-            placeholder="Delegación o Municipio">
+        <div class="icon-cont"><i class="fa fa-street-view"></i></div><input type="text" formControlName="town"
+            placeholder="Delegación o Municipio" required>
     </div>
     <div class="input-cont">
         <div class="icon-cont"><i class="fa fa-map-marked-alt"></i></div><input type="text" formControlName="street"
-            placeholder="Calle">
+            placeholder="Calle" required>
     </div>
     <div class="button-cont">
         <button class="btn btn-primary">Libreta de direcciones</button>
-        <button class="btn btn-primary">Guardar</button>
+        <button class="btn btn-primary" type="submit" [disabled]="!userData.valid">Guardar</button>
     </div>
     <label><input type="checkbox" formControlName="useAddress" value="applyAddress"> Utilizar como dirección de
         facturación</label>

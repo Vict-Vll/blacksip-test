@@ -1,1 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
+
+// BASE
+@import "scss/base/variables";
+@import "scss/base/base";
+
+// BLOCKS
+@import "scss/blocks/containers";
+
+// ELEMENTS
+@import "scss/elements/buttons";
+@import "scss/elements/forms";
+@import "scss/elements/header";
+
+// MODIFIERS
+@import "scss/modifiers/modifiers";

@@ -1,0 +1,19 @@
+.btn {
+    border-radius: 0;
+    border: none;
+    font-size: 15px;
+    height: 35px;
+    padding: 0 20px 0 20px;
+    margin: 5px;
+    cursor: pointer;
+}
+
+.btn-primary {
+    background-color: $black;
+    color: $white;
+}
+
+.btn-secondary {
+    background-color: $red;
+    color: $white;
+}

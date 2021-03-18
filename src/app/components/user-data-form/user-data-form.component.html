@@ -1,0 +1,48 @@
+<form method="get" enctype="text/plain" [formGroup]="userData">
+    <div class="input-cont">
+        <div class="icon-cont"><i class="fa fa-user"></i></div><input type="text" formControlName="firstName"
+            placeholder="Nombre">
+    </div>
+    <div class="input-cont">
+        <div class="icon-cont"><i class="fa fa-user-alt"></i></div><input type="text" formControlName="lastName"
+            placeholder="Apellido">
+    </div>
+    <div class="input-cont">
+        <div class="icon-cont"><i class="fa fa-envelope"></i></div><input type="email" formControlName="email"
+            placeholder="Correo Electrónico">
+    </div>
+    <div class="input-cont">
+        <div class="icon-cont"><i class="fa fa-phone"></i></div><input type="phone" formControlName="phone"
+            placeholder="Teléfono">
+    </div>
+    <div class="input-cont">
+        <div class="icon-cont"><i class="fa fa-street-view"></i></div><input type="number" formControlName="zip"
+            placeholder="Código postal">
+    </div>
+    <div class="input-cont">
+        <div class="icon-cont"><i class="fa fa-street-view"></i></div><input type="text" formControlName="suburb"
+            placeholder="Colonia">
+    </div>
+    <div class="input-cont">
+        <div class="icon-cont"><i class="fa fa-street-view"></i></div><input type="text" formControlName="state"
+            placeholder="Estado/Region">
+    </div>
+    <div class="input-cont">
+        <div class="icon-cont"><i class="fa fa-street-view"></i></div><input type="text" formControlName="city"
+            placeholder="Ciudad">
+    </div>
+    <div class="input-cont">
+        <div class="icon-cont"><i class="fa fa-street-view"></i></div><input type="text" formControlName="municipality"
+            placeholder="Delegación o Municipio">
+    </div>
+    <div class="input-cont">
+        <div class="icon-cont"><i class="fa fa-map-marked-alt"></i></div><input type="text" formControlName="street"
+            placeholder="Calle">
+    </div>
+    <div class="button-cont">
+        <button class="btn btn-primary">Libreta de direcciones</button>
+        <button class="btn btn-primary">Guardar</button>
+    </div>
+    <label><input type="checkbox" formControlName="useAddress" value="applyAddress"> Utilizar como dirección de
+        facturación</label>
+</form>
